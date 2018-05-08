@@ -1,0 +1,22 @@
+@import '../index'
+
+table.fl-table
+  margin 30px 0 0
+  border-collapse collapse
+  width 100%
+  max-width 100%
+
+  & > thead > tr > th
+    padding 14px 0
+    $ui-typo-table-head($ui-color-table-head-text)
+
+  & > tbody > tr:nth-child(2)
+    background-color $ui-color-table-row-background
+
+  & > tbody > tr > td
+    padding 13px 0
+    $ui-typo-normal-regular($ui-color-sidebar-mobile-background)
+    letter-spacing 0
+
+    & > .checkbox
+      margin-bottom 30px

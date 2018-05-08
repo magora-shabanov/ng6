@@ -1,0 +1,10 @@
+.d-inline-block(ngbDropdown)
+  button(class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle) Navigation Menu
+  div(ngbDropdownMenu aria-labelledby="dropdownBasic1")
+    button.dropdown-item(*ngFor="let view of views", [routerLink]="view.link")
+      | {{view.name}}
+
+header(class="navbar navbar-static-top")
+  h2.bd-title(id="my-app-title") Angular Starter App
+router-outlet((activate)="activateEvent($event)", (deactivate)="deactivateEvent($event)")
+my-store-devtools(*ngIf="showMonitor")

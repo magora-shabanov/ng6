@@ -1,0 +1,66 @@
+/* ============================================================================
+ Font Family
+ =========================================================================== */
+
+@font-face
+  font-family 'Calibri'
+  src url('/assets/fonts/CALIBRI.TTF')
+
+$ui-typo-ff-default            = 'Calibri', 'Roboto', Arial, sans-serif
+
+/* ============================================================================
+ Font Colors
+ =========================================================================== */
+
+$ui-color-text-brand-base        = #d6ae54
+$ui-color-text-dark-base         = #262626
+$ui-color-text-light-base        = #fff
+$ui-color-text-light-secondary   = #999
+$ui-color-link-base              = #0085ef
+$ui-color-link-hover             = #005fab
+
+/* Default */
+$ui-typo-normal-regular(color)
+  font-size 14px
+  letter-spacing 1px
+  line-height 16px
+  color color
+  font-weight 400
+
+$ui-typo-small-regular(color)
+  font-size 12px
+  line-height normal
+  color color
+  font-weight 400
+
+/* Components */
+$ui-typo-logo(color)
+  font-size 24px
+  line-height 24px
+  color color
+  font-weight 100
+
+$ui-typo-page-title(color)
+  font-size 36px
+  line-height 44px
+  color color
+  font-family Calibri
+  font-weight 300
+
+$ui-typo-page-sub-title(color)
+  font-size 24px
+  color color
+  line-height 30px
+
+$ui-type-page-big-regular(color)
+  font-size 16px
+  color color
+  line-height 20px
+  text-align center
+
+$ui-typo-table-head(color)
+  font-size 20px
+  color color
+  line-height 20px
+  font-weight normal
+  text-align left

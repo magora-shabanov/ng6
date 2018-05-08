@@ -1,0 +1,222 @@
+@import '../index'
+
+fieldset
+  border 0
+  margin 0
+  padding 0
+
+legend
+  font-size 20px
+  margin 0 0 32px
+
+.mrg-t-50
+  margin-top 50px
+
+.mrg-b-20
+  margin-bottom 20px
+.mrg-b-30
+  margin-bottom 30px
+
+.button-outline
+  button(
+    28px,
+    $ui-color-submit-btn-outline-background,
+    $ui-color-submit-btn-background,
+    $ui-color-submit-btn-background,
+    $ui-color-submit-btn-outline-background-hover,
+    $ui-color-submit-btn-text,
+    80px
+  )
+
+.button
+  button(
+    28px,
+    $ui-color-submit-btn-background,
+    $ui-color-submit-btn-background,
+    $ui-color-submit-btn-background-hover,
+    $ui-color-submit-btn-background-hover,
+    $ui-color-submit-btn-text,
+    80px
+
+  )
+
+.button-gray
+  button(
+    28px,
+    $ui-color-gray-btn-background,
+    $ui-color-gray-btn-background,
+    $ui-color-gray-btn-background-hover,
+    $ui-color-gray-btn-background-hover,
+    $ui-color-white,
+    80px
+  )
+.button-xl
+  height 60px
+  width 254px
+  font-size 16px
+  letter-spacing 2px
+
+.button-md
+  height 38px
+  width 156px
+  font-size 16px
+  border-radius 19px
+  letter-spacing 1px
+  text-transform none
+
+
+.static-input
+  margin-bottom 25px
+
+  &__control
+    width 100%
+    display block
+    padding 6px 0
+    border-radius 0
+    $ui-typo-normal-regular($ui-color-text-dark-base)
+    border 1px solid $ui-color-form-border-normal
+
+    &:focus
+      border-color $ui-color-form-border-focus
+
+.fl-input
+  margin-bottom 20px
+  position relative
+
+  &.input-md
+
+    .fl-input__control
+      height 40px
+
+      &:focus,
+      &._focus
+        padding-top 15px
+        padding-bottom 5px
+
+    .fl-input__placeholder
+      top -4px
+
+
+
+  &__placeholder
+    display block
+    position absolute
+    top 0
+    left 16px
+    letter-spacing 1px
+    $ui-typo-normal-regular($ui-color-text-light-secondary)
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+    -webkit-box-ordinal-group 2
+    -webkit-order 1
+    order 1
+    pointer-events none
+    -webkit-font-smoothing antialiased
+    -webkit-transform translate3d(0,18px,0)
+    transform translate3d(0,18px,0)
+    -webkit-transition -webkit-transform .4s cubic-bezier(.25,.8,.25,1)
+    transition -webkit-transform .4s cubic-bezier(.25,.8,.25,1)
+    transition transform .4s cubic-bezier(.25,.8,.25,1)
+    transition transform .4s cubic-bezier(.25,.8,.25,1),-webkit-transform .4s cubic-bezier(.25,.8,.25,1)
+    -webkit-transform-origin left top
+    transform-origin left top
+
+  &__control
+    width 100%
+    height 50px
+    resize none
+    letter-spacing 2px
+    $ui-typo-normal-regular($ui-color-text-dark-base)
+    position relative
+    padding 16px 15px
+    outline none
+    border-radius $border-radius
+    border 1px solid $ui-color-form-border-normal
+    transition border-color .4s cubic-bezier(0.18, 0.89, 0.32, 1.28)
+    display block
+    user-select()
+
+    &.select
+      padding-left 11px
+
+    &.textarea
+      height 100px;
+
+    &:focus,
+    &._focus
+      padding-top 25px
+      padding-bottom 9px
+      border-color $ui-color-form-border-focus
+
+    &:hover
+      border 1px solid $ui-color-form-border-hover
+      background-color $ui-color-form-bg-hover
+
+    &._error
+      border-color $ui-color-form-border-error
+
+  &__control:focus + .fl-input__placeholder,
+  &__control._focus + .fl-input__placeholder
+    color $ui-color-text-brand-base
+    -webkit-transform translate3d(0,8px,0)
+    transform translate3d(0,8px,0) scale(.75)
+    -webkit-transition -webkit-transform .4s cubic-bezier(.25,.8,.25,1)
+    transition -webkit-transform .4s cubic-bezier(.25,.8,.25,1)
+    //transition transform .4s cubic-bezier(.25,.8,.25,1)
+    transition transform .4s cubic-bezier(.25,.8,.25,1),-webkit-transform .4s cubic-bezier(.25,.8,.25,1)
+
+  &__options
+    width 100px
+    border-radius 7px
+
+.checkbox
+  .checkbox-container
+    display block
+    position relative
+    padding-left 29px
+    cursor pointer
+    -webkit-user-select none
+    -moz-user-select none
+    -ms-user-select none
+    user-select none
+
+    input
+      position absolute
+      opacity 0
+      cursor pointer
+
+      &:checked ~ .checkbox-mark
+        background-color $ui-color-checkbox-checked
+        border-color $ui-color-checkbox-checked
+
+      &:checked ~ .checkbox-mark:after
+        display block
+
+    .checkbox-mark
+      position absolute
+      top 0
+      left 0
+      height 20px
+      width 20px
+      border-radius 2px
+      border 1px solid $ui-color-checkbox-border
+      background-color $ui-color-white
+
+      &:after
+        content ""
+        position absolute
+        display none
+        left 7px
+        top 3px
+        width 5px
+        height 10px
+        border solid $ui-color-white
+        border-width 0 3px 3px 0
+        -webkit-transform rotate(45deg)
+        -ms-transform rotate(45deg)
+        transform rotate(45deg)
+
+//&:hover input ~ .checkbox-mark
+//  background-color $ui-color-checkbox-checked
+

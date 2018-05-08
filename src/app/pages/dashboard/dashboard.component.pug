@@ -1,0 +1,10 @@
+section
+  h3 Welcome to the Dashboard {{user.name}}!
+  ng-container(*ngIf="testSub$ | async") Api test sub: {{ testSub$ | async }}
+  form.form-group([formGroup]="form", (ngSubmit)="submitState()", autocomplete="off")
+    .form-group
+      label(for="password") Enter your name
+      input(formControlName="name", id="password", [placeholder]="nameLabel")
+  button(class="btn btn-primary") Update store
+  button(class="btn btn-primary", type="button", (click)="clearName()") Clear name
+  button(class="btn btn-danger", (click)="logout()") Logout
