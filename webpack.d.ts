@@ -1,4 +1,5 @@
 interface WebpackConfig {
+  mode?: 'development' | 'production' | 'none';
   cache?: boolean;
   target?: string;
   devtool?: string;
@@ -25,7 +26,7 @@ interface WebpackConfig {
   };
   performance?: {
     hints?: boolean;
-  }
+  };
   node?: {
     process?: boolean;
     global?: boolean;

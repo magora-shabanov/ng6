@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Subject ,  Observable } from 'rxjs';
 import { TransferHttp } from '../../../libs/transfer-http/transfer-http';
 
 import { AppState } from '../../reducers';
@@ -13,7 +12,7 @@ import * as UserActions from '../../user/user.actions';
 @Component({
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.pug',
-  styles: [`#my-logout-button { background: #F44336 }`]
+  styleUrls: ['./dashboard.component.styl']
 })
 
 export class DashboardComponent implements OnDestroy, OnInit {

@@ -4,11 +4,24 @@
  * If more constants should be added file an issue or create PR.
  */
 import {
-  DEV_PORT, PROD_PORT, UNIVERSAL_PORT, EXCLUDE_SOURCE_MAPS, HOST,
-  USE_DEV_SERVER_PROXY, DEV_SERVER_PROXY_CONFIG, DEV_SERVER_WATCH_OPTIONS,
-  DEV_SOURCE_MAPS, PROD_SOURCE_MAPS, STORE_DEV_TOOLS,
-  MY_COPY_FOLDERS, MY_POLYFILL_DLLS, MY_VENDOR_DLLS, MY_CLIENT_PLUGINS, MY_CLIENT_PRODUCTION_PLUGINS,
-  MY_CLIENT_RULES, SHOW_WEBPACK_BUNDLE_ANALYZER
+  DEV_PORT,
+  DEV_SERVER_PROXY_CONFIG,
+  DEV_SERVER_WATCH_OPTIONS,
+  DEV_SOURCE_MAPS,
+  EXCLUDE_SOURCE_MAPS,
+  HOST,
+  MY_CLIENT_PLUGINS,
+  MY_CLIENT_PRODUCTION_PLUGINS,
+  MY_CLIENT_RULES,
+  MY_COPY_FOLDERS,
+  MY_POLYFILL_DLLS,
+  MY_VENDOR_DLLS,
+  PROD_PORT,
+  PROD_SOURCE_MAPS,
+  SHOW_WEBPACK_BUNDLE_ANALYZER,
+  STORE_DEV_TOOLS,
+  UNIVERSAL_PORT,
+  USE_DEV_SERVER_PROXY
 } from './constants';
 
 const path = require('path');
@@ -30,7 +43,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const nodeExternals = require('webpack-node-externals');
 const ScriptExtPlugin = require('script-ext-html-webpack-plugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 const { getAotPlugin } = require('./webpack.aot');
 
@@ -98,6 +111,7 @@ const DLL_VENDORS = [
   'ngrx-store-freeze',
   'ngrx-store-logger',
   'rxjs',
+  'rxjs-compat',
   ...MY_VENDOR_DLLS
 ];
 
@@ -114,7 +128,7 @@ if (!DEV_SERVER) {
 
 const commonConfig = function webpackConfig(): WebpackConfig {
   let config: WebpackConfig = Object.assign({});
-
+  config.mode = PROD ? 'production' : 'development';
   config.module = {
     rules: [
       {
@@ -215,8 +229,12 @@ const clientConfig = function webpackConfig(): WebpackConfig {
   if (PROD) {
     config.plugins.push(
       new UglifyJsPlugin({
-        beautify: false,
-        comments: false
+        uglifyOptions: {
+          output: {
+            beautify: false,
+            comments: false
+          }
+        }
       })
     );
   }
