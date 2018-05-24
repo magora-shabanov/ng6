@@ -3,7 +3,7 @@ const root = require('./helpers.js').root;
 const ip = require('ip');
 
 exports.HOST = ip.address();
-exports.DEV_PORT = 3000;
+exports.DEV_SERVER_PORT = 3000;
 exports.E2E_PORT = 4201;
 exports.PROD_PORT = 8088;
 exports.UNIVERSAL_PORT = 8000;
@@ -29,25 +29,12 @@ exports.DEV_SOURCE_MAPS = 'eval';
 exports.PROD_SOURCE_MAPS = 'source-map';
 
 /**
- * Set watch options for Dev Server. For better HMR performance, you can
- * try setting poll to 1000 or as low as 300 and set aggregateTimeout to as low as 0.
- * These settings will effect CPU usage, so optimal setting will depend on your dev environment.
- * https://github.com/webpack/docs/wiki/webpack-dev-middleware#watchoptionsaggregatetimeout
- */
-exports.DEV_SERVER_WATCH_OPTIONS = {
-  poll: undefined,
-  aggregateTimeout: 300,
-  ignored: /node_modules/
-}
-
-/**
  * specifies which @ngrx dev tools will be available when you build and load
  * your app in dev mode. Options are: monitor | logger | both | none
  */
-exports.STORE_DEV_TOOLS = 'monitor'
+exports.STORE_DEV_TOOLS = 'monitor';
 
 exports.EXCLUDE_SOURCE_MAPS = [
-  // these packages have problems with their sourcemaps
   root('node_modules/@angular'),
   root('node_modules/rxjs')
 ];

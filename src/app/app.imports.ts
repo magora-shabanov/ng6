@@ -15,7 +15,7 @@ import {RouterEffects} from './effects/router';
 import {UserEffects} from './user/user.effects';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
-if (ENV === 'development' && !AOT &&
+if (ENV === 'development' &&
   ['monitor', 'both'].includes(STORE_DEV_TOOLS) // set in constants.js file in project root
 ) STORE_DEV_TOOLS_IMPORTS.push(...[
   StoreDevtoolsModule.instrument({

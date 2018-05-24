@@ -31,7 +31,8 @@ import {SelectivePreloadingStrategy} from './common/selective-preloading-strateg
   entryComponents: [],
   imports: [
     CommonModule,
-    DEV_SERVER ? [BrowserAnimationsModule, BrowserTransferStateModule] : [],
+    BrowserAnimationsModule,
+    BrowserTransferStateModule,
     HttpClientModule,
     APP_IMPORTS,
     RouterModule.forRoot(routes, {

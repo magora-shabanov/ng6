@@ -7,6 +7,15 @@ const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'index.html')
 const win = domino.createWindow(template);
 const compression = require('compression');
 
+global['window'] = win;
+global['document'] = win.document;
+global['Document'] = win.document;
+global['DOMTokenList'] = win.DOMTokenList;
+global['Node'] = win.Node;
+global['Text'] = win.Text;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+
 import 'zone.js/dist/zone-node';
 import './polyfills.server';
 import './rxjs.imports';
@@ -20,8 +29,6 @@ import {App} from './mock-api/app';
 import {enableProdMode} from '@angular/core';
 import {UNIVERSAL_PORT} from '../constants';
 
-global['window'] = win;
-global['document'] = win.document;
 
 enableProdMode();
 const app = express();

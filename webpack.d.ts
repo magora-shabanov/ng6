@@ -1,5 +1,7 @@
+import {WebpackMode} from './webpack.config';
+
 interface WebpackConfig {
-  mode?: 'development' | 'production' | 'none';
+  mode?: WebpackMode;
   cache?: boolean;
   target?: string;
   devtool?: string;

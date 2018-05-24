@@ -5,7 +5,7 @@ import './polyfills.server';
 import './rxjs.imports';
 import * as express from 'express';
 import * as path from 'path';
-import {ServerAppModuleNgFactory} from './app/server.app.module.ngfactory';
+import {ServerAppModule} from './app/server.app.module';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 import {routes} from './server.routes';
 import {App} from './mock-api/app';
@@ -18,7 +18,7 @@ const api = new App();
 const baseUrl = `http://localhost:${UNIVERSAL_PORT}`;
 
 app.engine('html', ngExpressEngine({
-  bootstrap: ServerAppModuleNgFactory
+  bootstrap: ServerAppModule
 }));
 
 app.set('view engine', 'html');
